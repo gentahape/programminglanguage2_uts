@@ -21,7 +21,7 @@
 
 			?>
 
-				<a href="pembayaran_form.php?action=add">Tambah</a>
+				<a href="pembayaran_form.php?action=<?= base64_encode('add') ?>">Tambah</a>
 				<table border="1">
 					<tr>
 						<th>NO</th>
@@ -80,7 +80,7 @@
 						<td><?= $data['tahun'].' - '.$data['nominal'] ?></td>
 						<td><?= $data['jumlah_bayar'] ?></td>
 						<td>
-							<a href="pembayaran_form.php?action=edit&id=<?= $data['id_pembayaran'] ?>">Edit</a> | 
+							<a href="pembayaran_form.php?action=<?= base64_encode('edit') ?>&id=<?= $data['id_pembayaran'] ?>">Edit</a> | 
 							<a href="../Config/Routes.php?action=deletePembayaran&id=<?= $data['id_pembayaran'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
 						</td>
 					</tr>

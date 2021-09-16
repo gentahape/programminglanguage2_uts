@@ -21,7 +21,7 @@
 
 			?>
 
-				<a href="kelas_form.php?action=add">Tambah</a>
+				<a href="kelas_form.php?action=<?= base64_encode('add') ?>">Tambah</a>
 				<table border="1">
 					<tr>
 						<th>NO</th>
@@ -39,7 +39,7 @@
 						<td><?= $data['nama_kelas'] ?></td>
 						<td><?= $data['kompetensi_keahlian'] ?></td>
 						<td>
-							<a href="kelas_form.php?action=edit&id=<?= $data['id_kelas'] ?>">Edit</a> | 
+							<a href="kelas_form.php?action=<?= base64_encode('edit') ?>&id=<?= $data['id_kelas'] ?>">Edit</a> | 
 							<a href="../Config/Routes.php?action=deleteKelas&id=<?= $data['id_kelas'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
 						</td>
 					</tr>

@@ -15,7 +15,7 @@
 
 			<?php include('../Config/Csrf.php'); ?>
 
-			<?php if ($_GET['action'] == 'add') { ?>
+			<?php if (base64_decode($_GET['action']) == 'add') { ?>
 
 			<form action="../Config/Routes.php?action=insertPetugas" method="POST">
 			<input type="hidden" name="csrf_token" value="<?= createCSRF();?>"/>
@@ -57,7 +57,7 @@
 			</form>
 
 			<?php 	
-				}elseif ($_GET['action'] == 'edit') { 
+				}elseif (base64_decode($_GET['action']) == 'edit') { 
 					include '../Controllers/Controller_pegawai.php';
 					$dataAll = new Controller_pegawai();
 					$getData = $dataAll->getWherePetugas($_GET['id']);

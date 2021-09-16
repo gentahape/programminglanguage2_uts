@@ -21,7 +21,7 @@
 
 			?>
 
-				<a href="siswa_form.php?action=add">Tambah</a>
+				<a href="siswa_form.php?action=<?= base64_encode('add') ?>">Tambah</a>
 				<table border="1">
 					<tr>
 						<th>NO</th>
@@ -49,7 +49,7 @@
 						<td><?= $data['no_telp'] ?></td>
 						<td><?= $data['nominal'] ?></td>
 						<td>
-							<a href="siswa_form.php?action=edit&id=<?= $data['id_siswa'] ?>">Edit</a> | 
+							<a href="siswa_form.php?action=<?= base64_encode('edit') ?>&id=<?= $data['id_siswa'] ?>">Edit</a> | 
 							<a href="../Config/Routes.php?action=deleteSiswa&id=<?= $data['id_siswa'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
 						</td>
 					</tr>

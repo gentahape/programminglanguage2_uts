@@ -21,7 +21,7 @@
 
 			?>
 
-				<a href="petugas_form.php?action=add">Tambah</a>
+				<a href="petugas_form.php?action=<?= base64_encode('add') ?>">Tambah</a>
 				<table border="1">
 					<tr>
 						<th>NO</th>
@@ -41,7 +41,7 @@
 						<td><?= $data['username'] ?></td>
 						<td><?= $data['level'] ?></td>
 						<td>
-							<a href="petugas_form.php?action=edit&id=<?= $data['id_petugas'] ?>">Edit</a> | 
+							<a href="petugas_form.php?action=<?= base64_encode('edit') ?>&id=<?= $data['id_petugas'] ?>">Edit</a> | 
 							<a href="../Config/Routes.php?action=deletePetugas&id=<?= $data['id_petugas'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
 						</td>
 					</tr>

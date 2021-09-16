@@ -21,7 +21,7 @@
 
 			?>
 
-			<a href="spp_form.php?action=add">Tambah</a>
+			<a href="spp_form.php?action=<?= base64_encode('add') ?>">Tambah</a>
 			<table border="1">
 				<tr>
 					<th>NO</th>
@@ -39,7 +39,7 @@
 					<td><?= $data['tahun'] ?></td>
 					<td><?= $data['nominal'] ?></td>
 					<td>
-						<a href="spp_form.php?action=edit&id=<?= $data['id_spp'] ?>">Edit</a> | 
+						<a href="spp_form.php?action=<?= base64_encode('edit') ?>&id=<?= $data['id_spp'] ?>">Edit</a> | 
 						<a href="../Config/Routes.php?action=deleteSpp&id=<?= $data['id_spp'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
 					</td>
 				</tr>

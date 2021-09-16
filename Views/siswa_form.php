@@ -21,7 +21,7 @@
 				$sppAll = $dataAll->getSpp();
 			?>
 
-			<?php if ($_GET['action'] == 'add') { ?>
+			<?php if (base64_decode($_GET['action']) == 'add') { ?>
 
 			<form action="../Config/Routes.php?action=insertSiswa" method="POST">
 			<input type="hidden" name="csrf_token" value="<?= createCSRF();?>"/>
@@ -87,7 +87,7 @@
 			</form>
 
 			<?php 	
-				}elseif ($_GET['action'] == 'edit') { 
+				}elseif (base64_decode($_GET['action']) == 'edit') { 
 					$getData = $dataAll->getWhereSiswa($_GET['id']);
 					while ($data = mysqli_fetch_array($getData)) {
 			?>
