@@ -1,0 +1,144 @@
+<h1>Form Siswa</h1>
+
+<?php 
+	include('../Config/Csrf.php'); 
+	include '../Controllers/Controller_pegawai.php';
+	$dataAll = new Controller_pegawai();
+?>
+
+<?php if ($_GET['action'] == 'add') { ?>
+
+<form action="../Config/Routes.php?action=insertSiswa" method="POST">
+<input type="hidden" name="csrf_token" value="<?= createCSRF();?>"/>
+	
+	<table border="1">
+		<tr>
+			<td>NISN</td>
+			<td>:</td>
+			<td><input type="text" name="nisn" placeholder="Masukan NISN" required=""></td>
+		</tr>
+		<tr>
+			<td>NIS</td>
+			<td>:</td>
+			<td><input type="text" name="nis" placeholder="Masukan NIS" required=""></td>
+		</tr>
+		<tr>
+			<td>Nama</td>
+			<td>:</td>
+			<td><input type="text" name="nama" placeholder="Masukan Nama" required=""></td>
+		</tr>
+		<tr>
+			<td>Kelas</td>
+			<td>:</td>
+			<td>
+				<select name="id_kelas" required="">
+					<option value="">-- Pilih Kelas --</option>
+					<?php while ($kelas = mysqli_fetch_array($dataAll->getKelas())) { ?>
+						<option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
+					<?php } ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Alamat</td>
+			<td>:</td>
+			<td><textarea type="text" name="alamat" placeholder="Masukan Alamat" required=""></textarea></td>
+		</tr>
+		<tr>
+			<td>No Telp</td>
+			<td>:</td>
+			<td><input type="text" name="no_telp" placeholder="Masukan No Telp" required=""></td>
+		</tr>
+		<tr>
+			<td>SPP</td>
+			<td>:</td>
+			<td>
+				<select name="id_spp" required="">
+					<option value="">-- Pilih SPP --</option>
+					<?php while ($spp = mysqli_fetch_array($dataAll->getSpp())) { ?>
+						<option value="<?= $spp['id_spp'] ?>"><?= $spp['tahun'].' - '.$spp['nominal'] ?></option>
+					<?php } ?>
+				</select>
+			</td>
+		</tr>
+		<tr align="center">
+			<td colspan="3">
+				<a href="siswa_view.php">Kembali</a>
+				<input type="submit" name="proses" value="Simpan">
+			</td>
+		</tr>
+	</table>
+
+</form>
+
+<?php 	
+	}elseif ($_GET['action'] == 'edit') { 
+		$getData = $dataAll->getWhereSiswa($_GET['id']);
+		while ($data = mysqli_fetch_array($getData)) {
+?>
+
+<form action="../Config/Routes.php?action=updateSiswa" method="POST">
+<input type="hidden" name="csrf_token" value="<?= createCSRF();?>"/>
+<input type="hidden" name="id_siswa" value="<?= $_GET['id'] ?>"/>
+
+	<table border="1">
+		<tr>
+			<td>NISN</td>
+			<td>:</td>
+			<td><input type="text" name="nisn" placeholder="Masukan NISN" required="" value="<?= $data['nisn'] ?>"></td>
+		</tr>
+		<tr>
+			<td>NIS</td>
+			<td>:</td>
+			<td><input type="text" name="nis" placeholder="Masukan NIS" required="" value="<?= $data['nis'] ?>"></td>
+		</tr>
+		<tr>
+			<td>Nama</td>
+			<td>:</td>
+			<td><input type="text" name="nama" placeholder="Masukan Nama" required="" value="<?= $data['nama'] ?>"></td>
+		</tr>
+		<tr>
+			<td>Kelas</td>
+			<td>:</td>
+			<td>
+				<select name="id_kelas" required="">
+					<option value="">-- Pilih Kelas --</option>
+					<?php while ($kelas = mysqli_fetch_array($dataAll->getKelas())) { ?>
+						<option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
+					<?php } ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Alamat</td>
+			<td>:</td>
+			<td><textarea type="text" name="alamat" placeholder="Masukan Alamat" required=""><?= $data['alamat'] ?></textarea></td>
+		</tr>
+		<tr>
+			<td>No Telp</td>
+			<td>:</td>
+			<td><input type="text" name="no_telp" placeholder="Masukan No Telp" required="" value="<?= $data['no_telp'] ?>"></td>
+		</tr>
+		<tr>
+			<td>SPP</td>
+			<td>:</td>
+			<td>
+				<select name="id_spp" required="">
+					<option value="">-- Pilih SPP --</option>
+					<?php while ($spp = mysqli_fetch_array($dataAll->getSpp())) { ?>
+						<option value="<?= $spp['id_spp'] ?>"><?= $spp['tahun'].' - '.$spp['nominal'] ?></option>
+					<?php } ?>
+				</select>
+			</td>
+		</tr>
+		<tr align="center">
+			<td colspan="3">
+				<a href="siswa_view.php">Kembali</a>
+				<input type="submit" name="proses" value="Simpan">
+			</td>
+		</tr>
+	</table>
+
+</form>
+
+<?php } } ?>
