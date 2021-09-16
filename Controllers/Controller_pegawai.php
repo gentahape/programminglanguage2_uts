@@ -124,4 +124,32 @@ class Controller_pegawai
 		return $this->Model_pegawai->deleteSiswa($id);
 	}
 
+	// ====================================================================================================
+	// pembayaran
+
+	public function getPembayaran()
+	{
+		return $this->Model_pegawai->getPembayaran();
+	}
+
+	public function insertPembayaran($id_petugas,$nisn,$tgl_bayar,$id_spp,$jumlah_bayar)
+	{
+		return $this->Model_pegawai->insertPembayaran($id_petugas,$nisn,$tgl_bayar,$id_spp,$jumlah_bayar);
+	}
+
+	public function getWherePembayaran($id)
+	{
+		return $this->Model_pegawai->getWherePembayaran($id);
+	}
+
+	public function updatePembayaran($id,$id_petugas,$nisn,$tgl_bayar,$id_spp,$jumlah_bayar)
+	{
+		return $this->Model_pegawai->updatePembayaran($id,$id_petugas,$nisn,$tgl_bayar,$id_spp,$jumlah_bayar);
+	}
+
+	public function deletePembayaran($id)
+	{
+		return $this->Model_pegawai->deletePembayaran($id);
+	}
+
 }

@@ -126,6 +126,7 @@
 		
 		if(validation() == TRUE){
 		    $db->updateSiswa(
+		        $_POST['id_siswa'],
 		        $_POST['nisn'],
 		        $_POST['nis'],
 		        $_POST['nama'],
@@ -153,8 +154,6 @@
 		        $_POST['id_petugas'],
 		        $_POST['nisn'],
 		        $_POST['tgl_bayar'],
-		        $_POST['bulan_dibayar'],
-		        $_POST['tahun_dibayar'],
 		        $_POST['id_spp'],
 		        $_POST['jumlah_bayar'],
 		    );
@@ -169,8 +168,6 @@
 		        $_POST['id_petugas'],
 		        $_POST['nisn'],
 		        $_POST['tgl_bayar'],
-		        $_POST['bulan_dibayar'],
-		        $_POST['tahun_dibayar'],
 		        $_POST['id_spp'],
 		        $_POST['jumlah_bayar'],
 		    );

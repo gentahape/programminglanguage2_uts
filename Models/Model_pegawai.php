@@ -125,4 +125,43 @@ class Model_pegawai
 		return mysqli_query($this->conn, "DELETE FROM siswa WHERE id_siswa = '$id'");
 	}
 
+	// ====================================================================================================
+	// pembayaran
+
+	public function getPembayaran()
+	{
+		return mysqli_query($this->conn, "SELECT * FROM pembayaran 
+			LEFT JOIN petugas ON petugas.id_petugas = pembayaran.id_petugas 
+			LEFT JOIN siswa ON siswa.nisn = pembayaran.nisn 
+			LEFT JOIN spp ON spp.id_spp = pembayaran.id_spp
+			ORDER BY pembayaran.id_pembayaran DESC
+		");
+	}
+
+	public function insertPembayaran($id_petugas,$nisn,$tgl_bayar,$id_spp,$jumlah_bayar)
+	{
+		$tgl = date("d",strtotime($tgl_bayar));
+		$bln = date("m",strtotime($tgl_bayar));
+		$thn = date("Y",strtotime($tgl_bayar));
+		return mysqli_query($this->conn, "INSERT INTO pembayaran (id_petugas,nisn,tgl_bayar,bulan_dibayar,tahun_dibayar,id_spp,jumlah_bayar) VALUE ('$id_petugas','$nisn','$tgl','$bln','$thn','$id_spp','$jumlah_bayar')");
+	}
+
+	public function getWherePembayaran($id)
+	{
+		return mysqli_query($this->conn, "SELECT * FROM pembayaran WHERE id_pembayaran = '$id'");
+	}
+
+	public function updatePembayaran($id,$id_petugas,$nisn,$tgl_bayar,$id_spp,$jumlah_bayar)
+	{
+		$tgl = date("d",strtotime($tgl_bayar));
+		$bln = date("m",strtotime($tgl_bayar));
+		$thn = date("Y",strtotime($tgl_bayar));
+		return mysqli_query($this->conn, "UPDATE pembayaran SET id_petugas = '$id_petugas', nisn = '$nisn', tgl_bayar = '$tgl', bulan_dibayar = '$bln', tahun_dibayar = '$thn', id_spp = '$id_spp', jumlah_bayar = '$jumlah_bayar' WHERE id_pembayaran = '$id'");
+	}
+
+	public function deletePembayaran($id)
+	{
+		return mysqli_query($this->conn, "DELETE FROM pembayaran WHERE id_pembayaran = '$id'");
+	}
+
 }

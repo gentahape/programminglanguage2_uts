@@ -1,10 +1,10 @@
-<h1>Daftar Petugas</h1>
+<h1>Daftar Pembayaran</h1>
 
 <?php
 
 	include '../Controllers/Controller_pegawai.php';
 	$dataAll = new Controller_pegawai();
-	$getData = $dataAll->get();
+	$getData = $dataAll->getPembayaran();
 
 ?>
 
@@ -12,9 +12,13 @@
 	<table border="1">
 		<tr>
 			<th>NO</th>
-			<th>Nama</th>
-			<th>Username</th>
-			<th>Level</th>
+			<th>Petugas</th>
+			<th>Siswa</th>
+			<th>Tanggal Bayar</th>
+			<th>Bulan Bayar</th>
+			<th>Tahun Bayar</th>
+			<th>SPP</th>
+			<th>Jumlah Bayar</th>
 			<th>Aksi</th>
 		</tr>
 
@@ -25,11 +29,46 @@
 		<tr>
 			<td><?= $no ?></td>
 			<td><?= $data['nama_petugas'] ?></td>
-			<td><?= $data['username'] ?></td>
-			<td><?= $data['level'] ?></td>
+			<td><?= $data['nama'] ?></td>
+			<td><?= $data['tgl_bayar'] ?></td>
 			<td>
-				<a href="petugas_form.php?action=edit&id=<?= $data['id_petugas'] ?>">Edit</a> | 
-				<a href="../Config/Routes.php?action=deletePetugas&id=<?= $data['id_petugas'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
+				<?php  
+					if ($data['bulan_dibayar'] == '01') {
+						echo "Januari";
+					}elseif ($data['bulan_dibayar'] == '02') {
+						echo "Februari";
+					}elseif ($data['bulan_dibayar'] == '03') {
+						echo "Maret";
+					}elseif ($data['bulan_dibayar'] == '04') {
+						echo "April";
+					}elseif ($data['bulan_dibayar'] == '05') {
+						echo "Mei";
+					}elseif ($data['bulan_dibayar'] == '06') {
+						echo "Juni";
+					}elseif ($data['bulan_dibayar'] == '07') {
+						echo "Juli";
+					}elseif ($data['bulan_dibayar'] == '08') {
+						echo "Agustus";
+					}elseif ($data['bulan_dibayar'] == '09') {
+						echo "September";
+					}elseif ($data['bulan_dibayar'] == '10') {
+						echo "Oktober";
+					}elseif ($data['bulan_dibayar'] == '11') {
+						echo "November";
+					}elseif ($data['bulan_dibayar'] == '12') {
+						echo "Desember";
+					} else {
+						echo "Tidak ada bulan";
+					}
+					
+				?>		
+			</td>
+			<td><?= $data['tahun_dibayar'] ?></td>
+			<td><?= $data['tahun'].' - '.$data['nominal'] ?></td>
+			<td><?= $data['jumlah_bayar'] ?></td>
+			<td>
+				<a href="pembayaran_form.php?action=edit&id=<?= $data['id_pembayaran'] ?>">Edit</a> | 
+				<a href="../Config/Routes.php?action=deletePembayaran&id=<?= $data['id_pembayaran'] ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

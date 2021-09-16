@@ -4,6 +4,8 @@
 	include('../Config/Csrf.php'); 
 	include '../Controllers/Controller_pegawai.php';
 	$dataAll = new Controller_pegawai();
+	$kelasAll = $dataAll->getKelas();
+	$sppAll = $dataAll->getSpp();
 ?>
 
 <?php if ($_GET['action'] == 'add') { ?>
@@ -33,7 +35,7 @@
 			<td>
 				<select name="id_kelas" required="">
 					<option value="">-- Pilih Kelas --</option>
-					<?php while ($kelas = mysqli_fetch_array($dataAll->getKelas())) { ?>
+					<?php while ($kelas = mysqli_fetch_array($kelasAll)) { ?>
 						<option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
 					<?php } ?>
 				</select>
@@ -55,7 +57,7 @@
 			<td>
 				<select name="id_spp" required="">
 					<option value="">-- Pilih SPP --</option>
-					<?php while ($spp = mysqli_fetch_array($dataAll->getSpp())) { ?>
+					<?php while ($spp = mysqli_fetch_array($sppAll)) { ?>
 						<option value="<?= $spp['id_spp'] ?>"><?= $spp['tahun'].' - '.$spp['nominal'] ?></option>
 					<?php } ?>
 				</select>
@@ -103,8 +105,8 @@
 			<td>
 				<select name="id_kelas" required="">
 					<option value="">-- Pilih Kelas --</option>
-					<?php while ($kelas = mysqli_fetch_array($dataAll->getKelas())) { ?>
-						<option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
+					<?php while ($kelas = mysqli_fetch_array($kelasAll)) { ?>
+						<option value="<?= $kelas['id_kelas'] ?>" <?= ($kelas['id_kelas'] == $data['id_kelas'] ? 'selected' : '') ?>><?= $kelas['nama_kelas'] ?></option>
 					<?php } ?>
 				</select>
 			</td>
@@ -125,8 +127,8 @@
 			<td>
 				<select name="id_spp" required="">
 					<option value="">-- Pilih SPP --</option>
-					<?php while ($spp = mysqli_fetch_array($dataAll->getSpp())) { ?>
-						<option value="<?= $spp['id_spp'] ?>"><?= $spp['tahun'].' - '.$spp['nominal'] ?></option>
+					<?php while ($spp = mysqli_fetch_array($sppAll)) { ?>
+						<option value="<?= $spp['id_spp'] ?>" <?= ($spp['id_spp'] == $data['id_spp'] ? 'selected' : '') ?>><?= $spp['tahun'].' - '.$spp['nominal'] ?></option>
 					<?php } ?>
 				</select>
 			</td>
