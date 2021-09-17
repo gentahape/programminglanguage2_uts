@@ -17,8 +17,8 @@
 		        $_POST['username'],
 		        $_POST['password'],
 		        $_POST['nama_petugas'],
-		        $_POST['level'],
-		    );
+		        $_POST['level']
+			);
 		}
 		header("location:../Views/petugas_view.php");
 
@@ -30,7 +30,7 @@
 		        $_POST['username'],
 		        $_POST['password'],
 		        $_POST['nama_petugas'],
-		        $_POST['level'],
+		        $_POST['level']
 		    );
 		}
 		header("location:../Views/petugas_view.php");
@@ -38,7 +38,7 @@
 	}elseif ($action == 'deletePetugas') {
 
 		$db->deletePetugas(
-		    $_GET['id'],
+		    $_GET['id']
 		);
 		header("location:../Views/petugas_view.php");
 
@@ -50,7 +50,7 @@
 		if(validation() == TRUE){
 		    $db->insertKelas(
 		        $_POST['nama_kelas'],
-		        $_POST['kompetensi_keahlian'],
+		        $_POST['kompetensi_keahlian']
 		    );
 		}
 		header("location:../Views/kelas_view.php");
@@ -61,7 +61,7 @@
 		    $db->updateKelas(
 		        $_POST['id_kelas'],
 		        $_POST['nama_kelas'],
-		        $_POST['kompetensi_keahlian'],
+		        $_POST['kompetensi_keahlian']
 		    );
 		}
 		header("location:../Views/kelas_view.php");
@@ -69,7 +69,7 @@
 	}elseif ($action == 'deleteKelas') {
 
 		$db->deleteKelas(
-		    $_GET['id'],
+		    $_GET['id']
 		);
 		header("location:../Views/kelas_view.php");
 
@@ -81,7 +81,7 @@
 		if(validation() == TRUE){
 		    $db->insertSpp(
 		        $_POST['tahun'],
-		        $_POST['nominal'],
+		        $_POST['nominal']
 		    );
 		}
 		header("location:../Views/spp_view.php");
@@ -92,7 +92,7 @@
 		    $db->updateSpp(
 		        $_POST['id_spp'],
 		        $_POST['tahun'],
-		        $_POST['nominal'],
+		        $_POST['nominal']
 		    );
 		}
 		header("location:../Views/spp_view.php");
@@ -100,7 +100,7 @@
 	}elseif ($action == 'deleteSpp') {
 
 		$db->deleteSpp(
-		    $_GET['id'],
+		    $_GET['id']
 		);
 		header("location:../Views/spp_view.php");
 
@@ -117,7 +117,7 @@
 		        $_POST['id_kelas'],
 		        $_POST['alamat'],
 		        $_POST['no_telp'],
-		        $_POST['id_spp'],
+		        $_POST['id_spp']
 		    );
 		}
 		header("location:../Views/siswa_view.php");
@@ -133,7 +133,7 @@
 		        $_POST['id_kelas'],
 		        $_POST['alamat'],
 		        $_POST['no_telp'],
-		        $_POST['id_spp'],
+		        $_POST['id_spp']
 		    );
 		}
 		header("location:../Views/siswa_view.php");
@@ -141,7 +141,7 @@
 	}elseif ($action == 'deleteSiswa') {
 
 		$db->deleteSiswa(
-		    $_GET['id'],
+		    $_GET['id']
 		);
 		header("location:../Views/siswa_view.php");
 
@@ -155,7 +155,7 @@
 		        $_POST['nisn'],
 		        $_POST['tgl_bayar'],
 		        $_POST['id_spp'],
-		        $_POST['jumlah_bayar'],
+		        $_POST['jumlah_bayar']
 		    );
 		}
 		header("location:../Views/pembayaran_view.php");
@@ -169,7 +169,7 @@
 		        $_POST['nisn'],
 		        $_POST['tgl_bayar'],
 		        $_POST['id_spp'],
-		        $_POST['jumlah_bayar'],
+		        $_POST['jumlah_bayar']
 		    );
 		}
 		header("location:../Views/pembayaran_view.php");
@@ -177,7 +177,7 @@
 	}elseif ($action == 'deletePembayaran') {
 
 		$db->deletePembayaran(
-		    $_GET['id'],
+		    $_GET['id']
 		);
 		header("location:../Views/pembayaran_view.php");
 
