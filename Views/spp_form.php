@@ -24,12 +24,12 @@
 					<tr>
 						<td>Tahun</td>
 						<td>:</td>
-						<td><input type="text" name="tahun" placeholder="Masukan Tahun" required=""></td>
+						<td><input type="text" name="tahun" placeholder="Masukan Tahun" class="onlyNumber" required="" maxlength="4"></td>
 					</tr>
 					<tr>
 						<td>Nominal</td>
 						<td>:</td>
-						<td><input type="text" name="nominal" placeholder="Masukan Nominal" required=""></td>
+						<td><input type="text" name="nominal" placeholder="Masukan Nominal" class="onlyNumber" required=""></td>
 					</tr>
 					<tr align="center">
 						<td colspan="3">
@@ -57,12 +57,12 @@
 					<tr>
 						<td>Tahun</td>
 						<td>:</td>
-						<td><input type="text" name="tahun" placeholder="Masukan Tahun" required="" value="<?= $data['tahun'] ?>"></td>
+						<td><input type="text" name="tahun" placeholder="Masukan Tahun" class="onlyNumber" required="" value="<?= $data['tahun'] ?>" maxlength="4"></td>
 					</tr>
 					<tr>
 						<td>Nominal</td>
 						<td>:</td>
-						<td><input type="text" name="nominal" placeholder="Masukan Nominal" required="" value="<?= $data['nominal'] ?>"></td>
+						<td><input type="text" name="nominal" placeholder="Masukan Nominal" class="onlyNumber" required="" value="<?= $data['nominal'] ?>"></td>
 					</tr>
 					<tr align="center">
 						<td colspan="3">
@@ -79,3 +79,5 @@
 		</td>
 	</tr>
 </table>
+
+<?php include 'js_script.php'; ?>

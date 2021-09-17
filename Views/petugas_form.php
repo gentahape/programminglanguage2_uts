@@ -24,7 +24,7 @@
 					<tr>
 						<td>Nama Petugas</td>
 						<td>:</td>
-						<td><input type="text" name="nama_petugas" placeholder="Masukan Nama Petugas" class="onlyNumber" required=""></td>
+						<td><input type="text" name="nama_petugas" placeholder="Masukan Nama Petugas" class="onlyAlphabet" required=""></td>
 					</tr>
 					<tr>
 						<td>Username</td>
@@ -72,7 +72,7 @@
 					<tr>
 						<td>Nama Petugas</td>
 						<td>:</td>
-						<td><input type="text" name="nama_petugas" placeholder="Masukan Nama Petugas" required="" value="<?= $data['nama_petugas'] ?>"></td>
+						<td><input type="text" name="nama_petugas" placeholder="Masukan Nama Petugas" class="onlyAlphabet" required="" value="<?= $data['nama_petugas'] ?>"></td>
 					</tr>
 					<tr>
 						<td>Username</td>
@@ -109,3 +109,5 @@
 		</td>
 	</tr>
 </table>
+
+<?php include 'js_script.php'; ?>

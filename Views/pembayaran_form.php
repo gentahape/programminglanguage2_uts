@@ -72,7 +72,7 @@
 					<tr>
 						<td>Jumlah Bayar</td>
 						<td>:</td>
-						<td><input type="text" name="jumlah_bayar" placeholder="Masukan Jumlah Bayar" required=""></td>
+						<td><input type="text" name="jumlah_bayar" placeholder="Masukan Jumlah Bayar" required="" class="onlyNumber"></td>
 					</tr>
 					<tr align="center">
 						<td colspan="3">
@@ -139,7 +139,7 @@
 					<tr>
 						<td>Jumlah Bayar</td>
 						<td>:</td>
-						<td><input type="text" name="jumlah_bayar" placeholder="Masukan Jumlah Bayar" required="" value="<?= $data['jumlah_bayar'] ?>"></td>
+						<td><input type="text" name="jumlah_bayar" placeholder="Masukan Jumlah Bayar" required="" value="<?= $data['jumlah_bayar'] ?>" class="onlyNumber"></td>
 					</tr>
 					<tr align="center">
 						<td colspan="3">
@@ -156,3 +156,5 @@
 		</td>
 	</tr>
 </table>
+
+<?php include 'js_script.php'; ?>

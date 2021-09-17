@@ -24,12 +24,12 @@
 					<tr>
 						<td>Nama Kelas</td>
 						<td>:</td>
-						<td><input type="text" name="nama_kelas" placeholder="Masukan Nama Kelas" required=""></td>
+						<td><input type="text" name="nama_kelas" placeholder="Masukan Nama Kelas" class="onlyAlphabet" required=""></td>
 					</tr>
 					<tr>
 						<td>Kompetensi Keahlian</td>
 						<td>:</td>
-						<td><input type="text" name="kompetensi_keahlian" placeholder="Masukan Kompetensi Keahlian" required=""></td>
+						<td><input type="text" name="kompetensi_keahlian" placeholder="Masukan Kompetensi Keahlian" class="onlyAlphabet" required=""></td>
 					</tr>
 					<tr align="center">
 						<td colspan="3">
@@ -57,12 +57,12 @@
 					<tr>
 						<td>Nama Kelas</td>
 						<td>:</td>
-						<td><input type="text" name="nama_kelas" placeholder="Masukan Nama Kelas" required="" value="<?= $data['nama_kelas'] ?>"></td>
+						<td><input type="text" name="nama_kelas" placeholder="Masukan Nama Kelas" class="onlyAlphabet" required="" value="<?= $data['nama_kelas'] ?>"></td>
 					</tr>
 					<tr>
 						<td>Username</td>
 						<td>:</td>
-						<td><input type="text" name="kompetensi_keahlian" placeholder="Masukan Kompetensi Keahlian" required="" value="<?= $data['kompetensi_keahlian'] ?>"></td>
+						<td><input type="text" name="kompetensi_keahlian" placeholder="Masukan Kompetensi Keahlian" class="onlyAlphabet" required="" value="<?= $data['kompetensi_keahlian'] ?>"></td>
 					</tr>
 					<tr align="center">
 						<td colspan="3">
@@ -79,3 +79,5 @@
 		</td>
 	</tr>
 </table>
+
+<?php include 'js_script.php'; ?>
